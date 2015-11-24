@@ -3,8 +3,7 @@
 xcode-select --install
 
 # get homebrew
-ruby -e "$(curl -fsSL
-https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
@@ -20,8 +19,8 @@ brew install chapel
 # get files
 git clone https://github.com/CoryMcCartan/configuration.git ~/.dotfiles
 cd ~/.dotfiles
-chmod +x install.sh
-./install.sh
+chmod +x install
+./install
 
 # install GUI apps
 brew cask install google-chrome
