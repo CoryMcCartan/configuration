@@ -16,7 +16,8 @@ brew install node
 brew install wget
 brew install chapel
 pip install --user powerline-status
-mv ~/.dotfiles/Meslo.otf /Library/Fonts/
+sudo cp ~/.dotfiles/Meslo.otf /Library/Fonts/
+sudo cp ~/.dotfiles/Meslo.otf ~/Library/Fonts/
 
 # get files
 git clone https://github.com/CoryMcCartan/configuration.git ~/.dotfiles
