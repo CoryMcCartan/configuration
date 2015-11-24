@@ -15,6 +15,10 @@ brew install tmux
 brew install node
 brew install wget
 brew install chapel
+pip install --user powerline-status
+curl https://github.com/powerline/fonts/raw/master/Meslo/Meslo%20LG%20S%20DZ%20Regular%20for%20Powerline.otf -o ~/.fonts_install/Meslo.otf
+mv ~/.fonts_install/Meslo.otf /Library/Fonts/
+rm ~/.fonts_install/
 
 # get files
 git clone https://github.com/CoryMcCartan/configuration.git ~/.dotfiles

@@ -2,4 +2,5 @@
 find ~/.dotfiles -name ".*" -type f -maxdepth 1 | xargs -I {} ln -sv {} ~
 ln -sv ~/.dotfiles/.bin/ ~
 find ~/.dotfiles/.bin/ -type f -maxdepth 1 | xargs chmod +x
-mv ~/.dotfiles/main.terminal ~
+ln -sv ~/.dotfiles/.vim/ ~
+cp ~/.dotfiles/main.terminal ~/Documents
