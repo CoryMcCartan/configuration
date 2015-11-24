@@ -1,0 +1,33 @@
+{
+	"segments": {
+		"right": [
+			{
+				"function": "powerline.segments.common.sys.uptime",
+				"priority": 50,
+				"args": {
+					"seconds_format": ""
+				}
+			},
+			{
+				"function": "powerline.segments.common.wthr.weather",
+				"args": {
+					"location_query": "grinnell, iowa",
+					"unit": "F",
+					"temp_hottest": 100,
+					"temp_coldest": -20
+				}
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
+				"args": {
+					"format": "%-I:%M %p %A",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
+		]
+	}
+}
