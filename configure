@@ -16,7 +16,6 @@ brew install node
 brew install wget
 brew install chapel
 pip install --user powerline-status
-sudo cp ~/.dotfiles/Meslo.otf ~/Library/Fonts/
 git clone git://github.com/huyng/bashmarks.git ~/bashmarks_install
 pushd ~/bashmarks_install
 make install
@@ -26,6 +25,7 @@ rm -rf ~/bashmarks_install
 # get files
 git clone https://github.com/CoryMcCartan/configuration.git ~/.dotfiles
 pushd ~/.dotfiles
+sudo cp Meslo.otf ~/Library/Fonts/
 chmod +x install
 ./install
 popd
