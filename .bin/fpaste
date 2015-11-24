@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -z "$1" ]
+then
+cp ~/.bin/.tmp/f-c-p-TEMPFILE `cat ~/.bin/.tmp/f-c-p-FILENAME`
+else
+cp ~/.bin/.tmp/f-c-p-TEMPFILE $1
+fi
+

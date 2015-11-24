@@ -1,0 +1,10 @@
+#!/bin/bash
+A='\033[0;37m\033[7m'
+B='\033[0;33m\033[1m'
+C='\033[0;37m'
+D='\033[5m'
+
+echo
+echo -n -e "  ${A} TERMINAL ${B} CORY McCARTAN ${C} "
+date +"%l:%M %p %A, %B %e, %Y" 
+echo 

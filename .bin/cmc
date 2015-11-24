@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# CORY McCARTAN COMMAND LINE TOOL
+
+case $1 in
+	jsinit)
+		cp ~/Documents/Code/JS/lib/lib.js ./
+		if [[ $2 == "html" ]]; then
+			cp ~/Documents/Code/JS/lib/indextmp.html ./index.html
+		fi
+		touch main.js
+	;;
+	help|*)
+		echo cmc
+		echo
+		echo Usage:
+		echo "  jsinit       copy lib.js"
+		echo "  jsinit html  copy lib.js and a template index.html"
+		echo
+	;;
+	*)
+		echo Unknown statement.
+		exit 1
+	;;
+esac

@@ -1,0 +1,4 @@
+#!/bin/bash
+pdflatex $1 > /dev/null
+rm $1.log
+rm $1.aux
