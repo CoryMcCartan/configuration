@@ -17,12 +17,18 @@ brew install wget
 brew install chapel
 pip install --user powerline-status
 sudo cp ~/.dotfiles/Meslo.otf ~/Library/Fonts/
+git clone git://github.com/huyng/bashmarks.git ~/bashmarks_install
+pushd ~/bashmarks_install
+make install
+popd
+rm -rf ~/bashmarks_install
 
 # get files
 git clone https://github.com/CoryMcCartan/configuration.git ~/.dotfiles
-cd ~/.dotfiles
+pushd ~/.dotfiles
 chmod +x install
 ./install
+popd
 
 # install GUI apps
 brew cask install google-chrome
