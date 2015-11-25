@@ -16,6 +16,7 @@ brew install node
 brew install wget
 brew install python
 brew install chapel
+brew install the_silver_searcher
 pip install --user powerline-status
 git clone git://github.com/huyng/bashmarks.git ~/bashmarks_install
 pushd ~/bashmarks_install
