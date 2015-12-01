@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# get homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap caskroom/cask
+brew install brew-cask
+brew tap caskroom/versions
+
+# install command-line tools
+cat packages/brew | xargs brew install
+cat packages/pip | xargs pip install --user
+cat packages/npm | xargs npm install -g 
+
+# bashmarks
+git clone git://github.com/huyng/bashmarks.git ~/bashmarks_install
+pushd ~/bashmarks_install
+make install
+popd
+rm -rf ~/bashmarks_install
+
+# install GUI apps
+cat packages/brew-cask | xargs brew cask install

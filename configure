@@ -1,37 +1,26 @@
 #!/bin/bash
+
 # install command-line tools
 xcode-select --install
 
-# get homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap caskroom/cask
-brew install brew-cask
-brew tap caskroom/versions
-
-# install command-line tools
-brew install git
-brew install vim
-brew install tmux
-brew install node
-brew install wget
-brew install python
-brew install chapel
-brew install the_silver_searcher
-pip install --user powerline-status
-git clone git://github.com/huyng/bashmarks.git ~/bashmarks_install
-pushd ~/bashmarks_install
-make install
-popd
-rm -rf ~/bashmarks_install
-
 # get files
 git clone https://github.com/CoryMcCartan/configuration.git ~/.dotfiles
-pushd ~/.dotfiles
-sudo cp Meslo.otf ~/Library/Fonts/
-chmod +x install
-./install
-popd
 
-# install GUI apps
-brew cask install google-chrome
-brew cask install gimp
+pushd ~/.dotfiles
+
+# dotfiles
+chmod +x install-dotfiles
+./install-dotfiles
+
+# other assets
+sudo cp .meslo.otf ~/Library/Fonts/Meslo.otf
+
+# plists
+chmod +x install-plists
+./install-plists
+
+# packages
+chmod +x install-packages
+./install-packages
+
+popd

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd plists
+cat list | xargs defaults import
+popd

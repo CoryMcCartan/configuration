@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# package managers
+pushd packages
+brew leaves > brew
+brew cask list > brew-cask
+pip list | sed -e "s/ (.*)//" > pip
+npm ls -g --depth=0 | grep -E " \w" | cut -c 5- | sed -e "s/@.*$//" > npm
+popd
+
+# plists
+pushd plists
+cat list | xargs defaults export
+popd

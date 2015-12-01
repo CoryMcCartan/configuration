@@ -4,4 +4,3 @@ ln -sv ~/.dotfiles/.bin/ ~
 find ~/.dotfiles/.bin/ -type f -maxdepth 1 | xargs chmod +x
 ln -sv ~/.dotfiles/.vim/ ~
 ln -sv ~/.dotfiles/.config/powerline ~/.config
-cp ~/.dotfiles/main.terminal ~/Documents
