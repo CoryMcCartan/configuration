@@ -12,6 +12,15 @@ md() {
 	cd $1
 }
 
+# editing
+rr() {
+    if [ "$1" != "r" ]; then
+        RRTMP=`mktemp -t long-cmd`
+    fi
+    vim $RRTMP
+    cat $RRTMP | bash
+}
+
 extract() {
   if [ -f "$1" ]; then
     case "$1" in

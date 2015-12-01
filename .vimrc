@@ -13,7 +13,8 @@ set autoindent
 set copyindent
 set smartindent
 " 80 character max
-set tw=79
+set tw=0
+set colorcolumn=80
 " }}}
 " Syntax highlighting {{{
 syntax on
@@ -21,6 +22,7 @@ syntax on
 " Keyboard shortcuts {{{
 " replace : with ;
 nnoremap ; :
+vnoremap ; :
 " moving lines
 nnoremap <C-j> :m+<CR>==
 nnoremap <C-k> :m-2<CR>==
@@ -53,6 +55,7 @@ set pastetoggle=<F2>
 set showcmd
 " line numbers
 set number
+set relativenumber
 " show filename in title
 set title
 " ruler (cursor pos in lower right)
@@ -61,6 +64,7 @@ set ruler
 nnoremap <space> za
 vnoremap <space> za
 set foldmethod=indent
+set foldlevelstart=1
 "}}}
 " File manipulation {{{
 " ignore file names for tab-completion
