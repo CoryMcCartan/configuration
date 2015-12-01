@@ -10,14 +10,14 @@ pushd ~/.dotfiles
 
 # dotfiles
 chmod +x install-dotfiles
-./install-dotfiles
+sudo ./install-dotfiles
 
 # other assets
 sudo cp .meslo.otf ~/Library/Fonts/Meslo.otf
 
 # plists
 chmod +x install-plists
-./install-plists
+sudo ./install-plists
 
 # packages
 chmod +x install-packages
