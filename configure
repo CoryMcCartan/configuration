@@ -23,4 +23,6 @@ sudo ./install-plists
 chmod +x install-packages
 ./install-packages
 
+open other_todos.txt
+
 popd
