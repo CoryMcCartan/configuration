@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # install command-line tools
 xcode-select --install
@@ -22,6 +22,10 @@ sudo ./install-plists
 # packages
 chmod +x install-packages
 ./install-packages
+
+# update bash
+sudo echo /usr/local/bin/bash >> /etc/shells
+sudo chsh -s /usr/local/bin/bash
 
 open other_todos.txt
 

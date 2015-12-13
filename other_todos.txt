@@ -3,5 +3,5 @@ SETUP
 * Change profile picture
 * Change desktop background
 * Display battery percentage
-* Turn of TimeMachine
+* Turn off TimeMachine
 

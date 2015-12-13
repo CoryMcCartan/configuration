@@ -4,18 +4,7 @@
 " Pathogen {{{
 execute pathogen#infect()
 "}}} 
-" Intenting {{{
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
-set autoindent
-set copyindent
-set smartindent
-" 80 character max
-set tw=0
-set colorcolumn=80
-" }}}
+" Intenting {{{ set shiftwidth=4 set tabstop=4 set softtabstop=4 set expandtab set autoindent set copyindent set smartindent " 80 character max set tw=0 set colorcolumn=80 " }}}
 " Syntax highlighting {{{
 syntax on
 "}}}
@@ -82,6 +71,9 @@ set showmatch
 set hlsearch
 set gdefault
 nnoremap <CR> :nohlsearch<CR><CR>
+"}}}
+" Custom Commands {{{
+    command! Shebang 0put =\"#!/usr/bin/env \"|start!|w|! chmod +x %
 "}}}
 " Color scheme {{{
 colors cmccartan

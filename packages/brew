@@ -4,10 +4,8 @@ caskroom/cask/brew-cask
 chapel
 cppunit
 entr
-ffmpeg
 fftw
 fswatch
-ghostscript
 git
 gnupg
 gsl
@@ -19,11 +17,15 @@ jbig2dec
 lesspipe
 libav
 libmpc
+homebrew/tex/lilypond
 lynx
+mplayer
 node
+pianobar
 picocom
 pup
 python
+python3
 reattach-to-user-namespace
 rename
 rmtrash
@@ -34,4 +36,3 @@ tokyo-cabinet
 v8
 vim
 wget
-zeromq
