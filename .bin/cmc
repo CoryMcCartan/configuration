@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # CORY McCARTAN COMMAND LINE TOOL
 
 case $1 in
 	jsinit)
-		cp ~/Documents/Code/JS/lib/lib.js ./
+		ln -s ~/Documents/Code/JS/lib/lib.js ./lib.js
 		if [[ $2 == "html" ]]; then
 			cp ~/Documents/Code/JS/lib/indextmp.html ./index.html
 		fi

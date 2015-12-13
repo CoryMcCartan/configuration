@@ -65,7 +65,7 @@ hi Search guifg=#000000 guibg=#e0515f guisp=#e0515f gui=NONE ctermfg=NONE ctermb
 hi Delimiter guifg=#8f8f8f guibg=NONE guisp=NONE gui=NONE ctermfg=245 ctermbg=NONE cterm=NONE
 hi Statement guifg=#ccb625 guibg=NONE guisp=NONE gui=bold ctermfg=178 ctermbg=NONE cterm=bold
 hi Structure guifg=#8995c7 guibg=NONE guisp=NONE gui=bold ctermfg=97 ctermbg=NONE cterm=bold
-hi Comment guifg=#7f7f7f guibg=NONE guisp=NONE gui=NONE ctermfg=8 ctermbg=NONE cterm=NONE
+hi Comment guifg=#7f7f7f guibg=NONE guisp=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE
 hi Character guifg=#dca3a3 guibg=NONE guisp=NONE gui=bold ctermfg=181 ctermbg=NONE cterm=bold
 "hi Float guifg=#ccaab2 guibg=NONE guisp=NONE gui=NONE ctermfg=181 ctermbg=NONE cterm=NONE
 hi Number guifg=#ccaab2 guibg=NONE guisp=NONE gui=NONE ctermfg=181 ctermbg=NONE cterm=NONE

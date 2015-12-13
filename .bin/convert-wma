@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 which ffmpeg > /dev/null || { echo "Install ffmpeg, with 'sudo apt-get install ffmpeg'" >&2; exit 1; }
 which avprobe > /dev/null || { echo "Install libav-tools, with 'sudo apt-get install ffmpeg'" >&2; exit 1; }

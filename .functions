@@ -6,6 +6,10 @@ alias ls='ls -pFh'
 # safe delte
 alias del=rmtrash
 
+# media
+alias pandora='pianobar 2>&1 | grep -v API'
+alias youtube='mpsyt'
+
 # makedir
 md() {
 	mkdir $1
