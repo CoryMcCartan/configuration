@@ -4,7 +4,17 @@
 " Pathogen {{{
 execute pathogen#infect()
 "}}} 
-" Intenting {{{ set shiftwidth=4 set tabstop=4 set softtabstop=4 set expandtab set autoindent set copyindent set smartindent " 80 character max set tw=0 set colorcolumn=80 " }}}
+" Intenting {{{ 
+set shiftwidth=4 
+set tabstop=4 
+set softtabstop=4 
+set expandtab 
+set autoindent 
+set copyindent 
+set smartindent 
+" 80 character max set tw=0 
+set colorcolumn=80 
+"}}}
 " Syntax highlighting {{{
 syntax on
 "}}}
@@ -12,6 +22,11 @@ syntax on
 " replace : with ;
 nnoremap ; :
 vnoremap ; :
+" leader keys
+let mapleader=","
+let maplocalleader="\\"
+" timeout length for shortcuts
+set timeoutlen=600
 " moving lines
 nnoremap <C-j> :m+<CR>==
 nnoremap <C-k> :m-2<CR>==
@@ -22,6 +37,9 @@ imap <c-d> <Esc>Vxi
 " exit insert mode
 inoremap jk <Esc>
 inoremap <C-c> <ESC>
+" comment and uncomment
+noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:s/$/<C-R>=escape(b:comment_ender,'\/*')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:s/<C-R>=escape(b:comment_ender,'\/*')<CR>$<CR>:nohlsearch<CR>
 "}}}
 " Motion {{{
 " move to next editor line
@@ -75,6 +93,23 @@ nnoremap <CR> :nohlsearch<CR><CR>
 " Custom Commands {{{
     command! Shebang 0put =\"#!/usr/bin/env \"|start!|w|! chmod +x %
 "}}}
+" Autocommands {{{
+" commenting
+let b:comment_leader = ''
+let b:comment_ender = ''
+autocmd FileType c,cpp,java,scala,javascript let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+autocmd FileType html let b:comment_leader = '<!-- ' 
+autocmd FileType html let b:comment_ender = ' -->' 
+autocmd FileType css let b:comment_leader = '/* ' 
+autocmd FileType css let b:comment_ender = ' */' 
+" word wrap
+autocmd FileType tex setlocal tw=80 	
+"}}}
 " Color scheme {{{
 colors cmccartan
 " for colorscheme editing
@@ -91,29 +126,16 @@ nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 "}}}
 " Powerline {{{
-set rtp+=/Users/raguay/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
-
-" These lines setup the environment to show graphics and colors correctly.
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline_powerline_fonts = 1
+let g:airline_section_warning = ''
+"" These lines setup the environment to show graphics and colors correctly.
 set nocompatible
 set t_Co=256
-
-let g:minBufExplForceSyntaxEnable = 1
-    python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-    python del powerline_setup
-
-"    if ! has('gui_running')
-"        set ttimeoutlen=10
-"        augroup FastEscape
-"        autocmd!
-"            au InsertEnter * set timeoutlen=0
-"            au InsertLeave * set timeoutlen=1000
-"        augroup END
-"    endif
-
-    set laststatus=2 " Always display the statusline in all windows
-    set guifont=Inconsolata\ for\ Powerline:h14
-    set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 "}}}
 " Misc. {{{
 " performance
@@ -121,6 +143,8 @@ python powerline_setup()
 set ttyfast
 " auto pairs
 let g:AutoPairsFlyMode = 1
+" fix regex
+set re=1
 " fix meta-keys
 set <M-e>=e
 imap e <M-e>
