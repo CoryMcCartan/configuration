@@ -2,7 +2,8 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Cory McCartan
-	email = mccartan@grinnell.edul
+	email = cory.mccartan@gmail.com
 [push]
-	deafult = simple
 	default = simple
+[help]
+	autocorrect = -1
