@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # cool ls (G for color)
-alias ls='ls -pFh'
+alias ls='ls -pFhG'
+export LSCOLORS="hxfxcxdxBxegedabagacad"
 
 # safe delte
 alias del=rmtrash

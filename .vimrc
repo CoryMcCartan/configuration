@@ -143,8 +143,6 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 set ttyfast
 " auto pairs
 let g:AutoPairsFlyMode = 1
-" fix regex
-set re=1
 " fix meta-keys
 set <M-e>=e
 imap e <M-e>
