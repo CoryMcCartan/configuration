@@ -12,8 +12,8 @@ set expandtab
 set autoindent 
 set copyindent 
 set smartindent 
-" 80 character max set tw=0 
-set colorcolumn=80 
+" 80 character max 
+set colorcolumn=81 
 "}}}
 " Syntax {{{
 " filetype based plugins etc
