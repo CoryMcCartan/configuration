@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 find ~/.dotfiles -name ".*" -type f -maxdepth 1 | xargs -I {} ln -sv {} ~
 ln -sv ~/.dotfiles/.bin/ ~
+rm ~/.gitignore # this is only for our repository
 find ~/.dotfiles/.bin/ -type f -maxdepth 1 | xargs chmod +x
 ln -sv ~/.dotfiles/.vim/ ~
 ln -sv ~/.dotfiles/.config/powerline ~/.config
