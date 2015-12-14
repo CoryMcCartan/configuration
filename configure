@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Keep-alive: update existing `sudo` time stamp until script has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # install command-line tools
 xcode-select --install
 
@@ -26,6 +29,10 @@ chmod +x install-packages
 # update bash
 sudo echo /usr/local/bin/bash >> /etc/shells
 sudo chsh -s /usr/local/bin/bash
+
+# configure OSX
+chmod +x osx-settings
+./osx-settings
 
 # visuals
 # pushd visuals

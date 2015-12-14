@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# cool ls (G for color)
+# cool ls 
 alias ls='ls -pFhG'
 export LSCOLORS="hxfxcxdxBxegedabagachx"
 
@@ -10,6 +10,9 @@ alias del=rmtrash
 # media
 alias pandora='pianobar 2>&1 | grep -v API'
 alias youtube='mpsyt'
+
+# clear & status
+alias cls='clear && status'
 
 # makedir
 md() {
