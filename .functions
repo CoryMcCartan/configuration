@@ -2,7 +2,7 @@
 
 # cool ls (G for color)
 alias ls='ls -pFhG'
-export LSCOLORS="hxfxcxdxBxegedabagacad"
+export LSCOLORS="hxfxcxdxBxegedabagachx"
 
 # safe delte
 alias del=rmtrash
