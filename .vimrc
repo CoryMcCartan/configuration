@@ -15,7 +15,17 @@ set smartindent
 " 80 character max set tw=0 
 set colorcolumn=80 
 "}}}
-" Syntax highlighting {{{
+" Syntax {{{
+" filetype based plugins etc
+filetype plugin on
+" autocomplete
+set omnifunc=syntaxcomplete#Complete " autocomplete
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" refactoring
+nnoremap gr gdva{:s/<C-R>///g<left><left>
+nnoremap gR gD:%s/<C-R>///g<left><left>"}]
+" syntax highighting
 syntax on
 "}}}
 " Keyboard shortcuts {{{
@@ -24,7 +34,9 @@ nnoremap ; :
 vnoremap ; :
 " leader keys
 let mapleader=","
-let maplocalleader="\\"
+let maplocalleader=""
+" repeat f / t
+nnoremap \ ;
 " timeout length for shortcuts
 set timeoutlen=600
 " moving lines
@@ -32,8 +44,6 @@ nnoremap <C-j> :m+<CR>==
 nnoremap <C-k> :m-2<CR>==
 vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
-" delete current line
-imap <c-d> <Esc>Vxi
 " exit insert mode
 inoremap jk <Esc>
 inoremap <C-c> <ESC>
@@ -72,8 +82,12 @@ nnoremap <space> za
 vnoremap <space> za
 set foldmethod=indent
 set foldlevelstart=1
+" hidden characters (whitespace)
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 "}}}
 " File manipulation {{{
+" hide buffers instead of closing
+set hidden
 " ignore file names for tab-completion
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.log,*.aux,*.pdf
 " save
@@ -91,7 +105,9 @@ set gdefault
 nnoremap <CR> :nohlsearch<CR><CR>
 "}}}
 " Custom Commands {{{
-    command! Shebang 0put =\"#!/usr/bin/env \"|start!|w|! chmod +x %
+command! Shebang 0put =\"#!/usr/bin/env \"|start!|w|! chmod +x %
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR><CR>:noh<CR><CR>
 "}}}
 " Autocommands {{{
 " commenting
@@ -122,7 +138,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 set splitright
 set splitbelow
 " tab navigation
-nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-h> <C-w>p
 nnoremap <C-l> :tabnext<CR>
 "}}}
 " Powerline {{{
