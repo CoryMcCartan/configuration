@@ -1,4 +1,5 @@
 osx-cross/avr/avr-binutils
+bash
 boost
 caskroom/cask/brew-cask
 chapel
@@ -6,6 +7,7 @@ cppunit
 entr
 fftw
 fswatch
+gcc
 git
 gnupg
 gsl
@@ -16,7 +18,6 @@ homebrew/versions/gst-python010
 jbig2dec
 lesspipe
 libav
-libmpc
 homebrew/tex/lilypond
 lynx
 mplayer

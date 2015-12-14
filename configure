@@ -27,6 +27,11 @@ chmod +x install-packages
 sudo echo /usr/local/bin/bash >> /etc/shells
 sudo chsh -s /usr/local/bin/bash
 
+# visuals
+# pushd visuals
+# osascript -e 'tell application "Finder" to set desktop picture to POSIX file "bg"'
+# popd
+
 open other_todos.txt
 
 popd

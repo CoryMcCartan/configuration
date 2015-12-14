@@ -12,3 +12,9 @@ popd
 pushd plists
 cat list | xargs defaults export
 popd
+
+# visuals
+# pushd visuals
+# dtbgpath=`osascript -e 'tell app "finder" to get posix path of (get desktop picture as alias)'`
+# cp "$dtbgpath" './bg'
+# popd
