@@ -1,0 +1,24 @@
+# Some useful Unicode entities
+snippet html
+	<!DOCTYPE HTML>
+	<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"`Close()`>
+		<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+	</head>
+	<body>
+		${0}
+	</body>
+	</html>
+snippet iscript
+	<script type="text/javascript" charset="utf-8">
+		${0}
+	</script>
+snippet script
+	<script src="${1}.js" type="text/javascript" charset="utf-8"></script>${0}
+snippet css
+	<link rel="stylesheet" type="text/css" href="${1}.css">${0}
+snippet style
+	<style type="text/css" media="${1:screen}">
+		${0}
+	</style>

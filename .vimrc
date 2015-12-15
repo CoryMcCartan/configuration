@@ -5,6 +5,7 @@
 execute pathogen#infect()
 "}}} 
 " Intenting {{{ 
+filetype indent on
 set shiftwidth=4 
 set tabstop=4 
 set softtabstop=4 
@@ -27,6 +28,8 @@ nnoremap gr gdva{:s/<C-R>///g<left><left>
 nnoremap gR gD:%s/<C-R>///g<left><left>"}]
 " syntax highighting
 syntax on
+" LaTeX
+let g:tex_flavor = "latex"
 "}}}
 " Keyboard shortcuts {{{
 " replace : with ;
@@ -55,9 +58,6 @@ noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,
 " move to next editor line
 nnoremap j gj
 nnoremap k gk
-" tab matches braces
-nnoremap <tab> %
-vnoremap <tab> %
 " more normal handling
 set nostartofline
 set mouse=a
@@ -115,7 +115,6 @@ let b:comment_leader = ''
 let b:comment_ender = ''
 autocmd FileType c,cpp,java,scala,javascript let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
