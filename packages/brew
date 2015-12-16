@@ -5,6 +5,7 @@ caskroom/cask/brew-cask
 chapel
 cppunit
 entr
+fbida
 fftw
 fswatch
 gcc
@@ -27,6 +28,7 @@ picocom
 pup
 python
 python3
+ranger
 reattach-to-user-namespace
 rename
 rmtrash

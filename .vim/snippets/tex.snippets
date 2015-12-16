@@ -18,16 +18,28 @@ snippet align
 	\begin{align}
 		${0}
 	\end{align}
+snippet fr
+	\frac{${1}}{${2}} ${0}
+snippet vc
+	\vec{${1}} ${0}
+snippet dots
+	${1:c}_1, $1_2, \dots, $1_${2:n}
 snippet sec
-	\section{${1}}${0}
+	\section{${1}}
+	${0}
 snippet sub
-	\subsection{${1}}${0}
+	\subsection{${1}}
+	${0}
 snippet subs
-	\subsubsection{${1}}${0}
+	\subsubsection{${1}}
+	${0}
+snippet para
+	\paragraph{${1}}
+	${0}
 snippet it
-	\textit{${1}}${0}
+	\textit{${1}} ${0}
 snippet bf
-	\textbf{${1}}${0}
+	\textbf{${1}} ${0}
 snippet mathpkg
 	\usepackage{amsthm}
 	\usepackage{amsfonts}

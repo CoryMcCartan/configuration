@@ -22,6 +22,7 @@ filetype plugin on
 " autocomplete
 set omnifunc=syntaxcomplete#Complete " autocomplete
 set completeopt=longest,menuone
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " refactoring
 nnoremap gr gdva{:s/<C-R>///g<left><left>
@@ -40,6 +41,10 @@ let mapleader=","
 let maplocalleader=""
 " repeat f / t
 nnoremap \ ;
+" increment and decrement
+nmap <C-z> <C-a>
+vmap <C-z> g<C-a>
+vmap <C-x> g<C-x>
 " timeout length for shortcuts
 set timeoutlen=600
 " moving lines
@@ -48,8 +53,8 @@ nnoremap <C-k> :m-2<CR>==
 vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 " exit insert mode
-inoremap jk <Esc>
-inoremap <C-c> <ESC>
+inoremap jk <Esc>l
+inoremap <C-c> <Esc>l
 " comment and uncomment
 noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:s/$/<C-R>=escape(b:comment_ender,'\/*')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:s/<C-R>=escape(b:comment_ender,'\/*')<CR>$<CR>:nohlsearch<CR>
@@ -90,10 +95,6 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set hidden
 " ignore file names for tab-completion
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.log,*.aux,*.pdf
-" save
-nmap <C-s> :w<CR>
-imap <C-s> <Esc>:w<CR>i
-vmap <C-s> <Esc>:w<CR>gv
 "}}}
 " Searching {{{
 set ignorecase

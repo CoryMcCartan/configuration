@@ -1,5 +1,6 @@
 alabaster
 appdirs
+atom
 Babel
 beautifulsoup4
 cffi
@@ -7,9 +8,11 @@ Cheetah
 configobj
 cryptography
 decorator
+distribute
 docutils
 enum34
 funcsigs
+gdata
 glob2
 gmusicapi
 gpsoauth
@@ -62,7 +65,9 @@ snowballstemmer
 Sphinx
 sphinx-rtd-theme
 tensorflow
+Twisted
 urllib3
 validictory
 wheel
 youtube-dl
+zope.interface
