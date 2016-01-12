@@ -76,6 +76,8 @@ chflags nohidden ~/Library
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
+# Disable switching desktops automatically
+defaults write com.apple.Dock workspaces-auto-swoosh -bool NO
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true

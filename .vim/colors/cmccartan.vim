@@ -24,7 +24,7 @@ hi Normal guifg=#f0f0f0 guibg=#141414 guisp=#141414 gui=NONE ctermfg=254 ctermbg
 "hi CursorLine -- no settings --
 "hi Union -- no settings --
 "hi TabLineFill -- no settings --
-"hi CursorColumn -- no settings --
+hi ColorColumn guifg=#000000 guibg=#e0515f guisp=#e0515f gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE
 "hi EnumerationName -- no settings --
 "hi SpellCap -- no settings --
 "hi SpellLocal -- no settings --
@@ -118,5 +118,6 @@ hi condtional guifg=#8fffff guibg=NONE guisp=NONE gui=NONE ctermfg=123 ctermbg=N
 hi texMathZoneX guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
 hi texMathZoneE guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
 hi texMathMatcher guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
+hi texItalStyle guifg=#f0f0f0 guibg=#141414 guisp=#141414 gui=NONE ctermfg=254 ctermbg=233 cterm=NONE
 
 

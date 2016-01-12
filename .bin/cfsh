@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-echo 'require "shelljs/global"' | cat - $1 > /tmp/out.coffee
-shjs /tmp/out.coffee
-rm /tmp/out.coffee
