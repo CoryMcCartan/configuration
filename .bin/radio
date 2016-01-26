@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# RADIO TOOL
+
+touch ~/.bin/.tmp/radiostations
+
+case $1 in
+    add)
+        if [[ $# -lt 3 ]]; then
+            echo "Format: radio add [name] [url] [direct]"
+            exit 1
+        fi
+        direct=f
+        if [[ -n $4 ]]; then
+            direct=t
+        fi
+        echo "$2 $direct $3" >> ~/.bin/.tmp/radiostations
+        echo Added $2 to station list.
+    ;;
+    play)
+        if [[ $# -lt 2 ]]; then
+            echo "Format: radio play [name]"
+            exit 1
+        fi
+        line=`grep $2 ~/.bin/.tmp/radiostations`
+        if [[ -z $line ]]; then
+            echo Station not known.
+            exit 1
+        fi
+        url=`echo $line | cut -c 8-`
+        direct=`echo $line | cut -c 6`
+        if [[ $direct == "t" ]]; then
+            mplayer -cache 1000 -cache-min 12 $url 
+        else
+            mplayer -cache 1000 -cache-min 12 -playlist $url 
+        fi
+    ;;
+    help)
+    ;&
+    *)
+        echo radio
+        echo
+        echo "Format: radio [add|play|help] [name] [url]"
+        echo
+    ;;
+esac
+
+

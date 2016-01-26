@@ -1,6 +1,3 @@
-# allow ctrl-s mapping
-stty -ixon
-
 # colored prompt
 # export PS1="\[\033[38;5;2m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;105m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
 
@@ -19,5 +16,8 @@ POWERLINE_BASH_SELECT=1
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
+
+# Fix problems with terminal key mappings
+stty -ixon
 
 status

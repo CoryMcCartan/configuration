@@ -92,11 +92,13 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
 " use f2 to toggle between pase and nopaste
 set pastetoggle=<F2>
-" arrow keys
-inoremap <left> <nop>
-inoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
+" fix arrow and function keys
+map OA <up>
+map OB <down>
+map OC <right>
+map OD <left>
+map OQ <F2>
+map <Esc>OQ <F2>
 "}}}
 " Display {{{
 " show partial commands
