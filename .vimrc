@@ -16,6 +16,23 @@ set smartindent
 " 80 character max 
 set colorcolumn=81 
 "}}}
+" Autocommands {{{
+" commenting
+autocmd FileType c,cpp,java,scala,javascript let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+autocmd FileType html let b:comment_leader = '<!-- ' 
+autocmd FileType html let b:comment_ender = ' -->' 
+autocmd FileType css let b:comment_leader = '/* ' 
+autocmd FileType css let b:comment_ender = ' */' 
+" word wrap
+autocmd FileType tex setlocal tw=80 	
+" filetype indenting
+" autocmd FileType python set foldmethod=syntax
+autocmd FileType html set foldmethod=indent
+"}}}
 " Syntax {{{
 " filetype based plugins etc
 filetype plugin on
@@ -55,7 +72,11 @@ vnoremap <C-k> :m-2<CR>gv=gv
 " exit insert mode
 inoremap jk <Esc>l
 inoremap <C-c> <Esc>l
+" Insert newline
+" nnoremap <S-enter> o<Esc>k
 " comment and uncomment
+let b:comment_leader = ''
+let b:comment_ender = ''
 noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:s/$/<C-R>=escape(b:comment_ender,'\/*')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:s/<C-R>=escape(b:comment_ender,'\/*')<CR>$<CR>:nohlsearch<CR>
 "}}}
@@ -71,6 +92,13 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
 " use f2 to toggle between pase and nopaste
 set pastetoggle=<F2>
+" fix arrow and function keys
+map OA <up>
+map OB <down>
+map OC <right>
+map OD <left>
+map OQ <F2>
+map <Esc>OQ <F2>
 "}}}
 " Display {{{
 " show partial commands
@@ -85,8 +113,10 @@ set ruler
 " folding
 nnoremap <space> za
 vnoremap <space> za
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevelstart=1
+" wrap
+set wrap!
 " hidden characters (whitespace)
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 "}}}
@@ -109,22 +139,6 @@ nnoremap <CR> :nohlsearch<CR><CR>
 command! Shebang 0put =\"#!/usr/bin/env \"|start!|w|! chmod +x %
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR><CR>:noh<CR><CR>
-"}}}
-" Autocommands {{{
-" commenting
-let b:comment_leader = ''
-let b:comment_ender = ''
-autocmd FileType c,cpp,java,scala,javascript let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType tex              let b:comment_leader = '% '
-autocmd FileType mail             let b:comment_leader = '> '
-autocmd FileType vim              let b:comment_leader = '" '
-autocmd FileType html let b:comment_leader = '<!-- ' 
-autocmd FileType html let b:comment_ender = ' -->' 
-autocmd FileType css let b:comment_leader = '/* ' 
-autocmd FileType css let b:comment_ender = ' */' 
-" word wrap
-autocmd FileType tex setlocal tw=80 	
 "}}}
 " Color scheme {{{
 colors cmccartan
