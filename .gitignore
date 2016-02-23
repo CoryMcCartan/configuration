@@ -1,3 +1,4 @@
 .tmp/*
 .bin/.tmp/*
 .vim/.netrwhist
+.DS_Store
