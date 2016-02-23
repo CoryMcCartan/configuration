@@ -13,6 +13,9 @@ npm install npm -g
 touch ~/.bin/.tmp/npm-updates
 npm update -g | tee ~/.bin/.tmp/npm-updates
 
+#update gems
+sudo gem update
+
 echo
 echo "==== SUMMARY ===="
 echo

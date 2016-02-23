@@ -30,8 +30,7 @@ autocmd FileType css let b:comment_ender = ' */'
 " word wrap
 autocmd FileType tex setlocal tw=80 	
 " filetype indenting
-" autocmd FileType python set foldmethod=syntax
-autocmd FileType html set foldmethod=indent
+autocmd FileType html,python set foldmethod=indent
 "}}}
 " Syntax {{{
 " filetype based plugins etc
@@ -90,6 +89,8 @@ set mouse=a
 set backspace=indent,eol,start
 " word wrap
 set whichwrap+=<,>,h,l,[,]
+" select what was just pasted
+nnoremap gp `[v`]
 " use f2 to toggle between pase and nopaste
 set pastetoggle=<F2>
 " fix arrow and function keys
@@ -139,6 +140,9 @@ nnoremap <CR> :nohlsearch<CR><CR>
 command! Shebang 0put =\"#!/usr/bin/env \"|start!|w|! chmod +x %
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR><CR>:noh<CR><CR>
+nmap <leader>fd yyO<Esc>P$T)DA;<Esc>
+nmap <leader>tc ggVG"*y
+nmap <leader>q lbi"<Esc>xepb
 "}}}
 " Color scheme {{{
 colors cmccartan

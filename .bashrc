@@ -1,6 +1,9 @@
 # colored prompt
 # export PS1="\[\033[38;5;2m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;105m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
 
+# path
+export PATH=$PATH:.
+
 source ~/.local/bin/bashmarks.sh
 
 source ~/.functions

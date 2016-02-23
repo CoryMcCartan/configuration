@@ -3,16 +3,28 @@
 # cool ls 
 alias ls='ls -pFhG'
 export LSCOLORS="hxfxcxdxBxegedabagachx"
+# cool colors
+alias grep='grep --color=auto'
 
 # safe delte
 alias del=rmtrash
 
+# github
+alias git=hub
+
 # media
 alias pandora='pianobar 2>&1 | grep -v API'
-alias youtube='mpsyt'
+alias youtube=mpsyt
+
+# pdf stuff
+alias sejda='~/.bin/sejda/bin/sejda-console'
 
 # clear & status
 alias cls='clear && status'
+
+# faster ssh
+alias ssh='ssh -c blowfish'
+alias mathlan='ssh mccartan@ssh.cs.grinnell.edu'
 
 # tts
 alias say='say -v Daniel'
