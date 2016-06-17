@@ -3,7 +3,10 @@
 # Please adapt and uncomment the following lines:
 	name = Cory McCartan
 	email = cory.mccartan@gmail.com
+	signingkey = 878EBA9B
 [push]
 	default = simple
 [help]
 	autocorrect = -1
+[commit]
+	gpgsign = false

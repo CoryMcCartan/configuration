@@ -29,6 +29,11 @@ alias mathlan='ssh mccartan@ssh.cs.grinnell.edu'
 # tts
 alias say='say -v Daniel'
 
+# js minify
+minify() {
+    uglifyjs $1.js -o $1.min.js -c -m --screw-ie8
+}
+
 # makedir
 md() {
 	mkdir $1

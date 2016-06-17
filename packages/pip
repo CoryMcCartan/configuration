@@ -12,15 +12,19 @@ distribute
 docutils
 enum34
 funcsigs
+GDAL
 gdata
 glob2
 gmusicapi
 gpsoauth
+html5lib
 httplib2
 idna
 ino
 ipaddress
+isodate
 Jinja2
+keepalive
 lxml
 Markdown
 MarkupSafe
@@ -54,6 +58,7 @@ pyparsing
 pyserial
 python-dateutil
 pytz
+rdflib
 request
 requests
 rsa
@@ -61,6 +66,7 @@ scipy
 setuptools
 six
 snowballstemmer
+SPARQLWrapper
 Sphinx
 sphinx-rtd-theme
 tensorflow

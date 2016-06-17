@@ -19,10 +19,14 @@ set colorcolumn=81
 " Autocommands {{{
 " commenting
 autocmd FileType c,cpp,java,scala,javascript let b:comment_leader = '// '
+autocmd FileType c,cpp,java,scala,javascript let b:comment_ender = ''
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType sh,ruby,python   let b:comment_ender = ''
 autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType tex              let b:comment_ender = ''
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
+autocmd FileType vim              let b:comment_ender = '" '
 autocmd FileType html let b:comment_leader = '<!-- ' 
 autocmd FileType html let b:comment_ender = ' -->' 
 autocmd FileType css let b:comment_leader = '/* ' 
@@ -31,6 +35,7 @@ autocmd FileType css let b:comment_ender = ' */'
 autocmd FileType tex setlocal tw=80 	
 " filetype indenting
 autocmd FileType html,python set foldmethod=indent
+autocmd FileType sass setlocal sw=4 sts=4
 "}}}
 " Syntax {{{
 " filetype based plugins etc
@@ -115,7 +120,7 @@ set ruler
 nnoremap <space> za
 vnoremap <space> za
 set foldmethod=syntax
-set foldlevelstart=1
+set foldlevelstart=2
 " wrap
 set wrap!
 " hidden characters (whitespace)
@@ -142,7 +147,9 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR><CR>:noh<CR><CR>
 nmap <leader>fd yyO<Esc>P$T)DA;<Esc>
 nmap <leader>tc ggVG"*y
-nmap <leader>q lbi"<Esc>xepb
+nmap <leader>q" lbi"<Esc>xepb
+nmap <leader>q( lbi(<Esc>lxepb
+nmap <leader>q[ lbi[<Esc>lxepb
 "}}}
 " Color scheme {{{
 colors cmccartan
@@ -182,6 +189,8 @@ set <M-e>=e
 imap e <M-e>
 set <M-b>=b
 imap b <M-b>
+" only do syntax highlighting for first 100 columns
+set synmaxcol=120
 " for this file's folds
 set modelines=1
 "}}} vim:foldmethod=marker:foldlevel=0
