@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+
+import click as cl
+import numpy as np
+from scipy.stats import chisquare
+
+@cl.command()
+@cl.argument("filename", type=cl.Path(exists=True))
+@cl.option("-a", "--alpha", type=float, default=0.05,
+    help="The significance level. Any p-values lower than this will raise a flag.")
+@cl.option("-d", "--max_digits", type=int, default=3,
+    help="Number of digits to examine. All numbers in dataset must have at least this many digits.")
+@cl.option("-v", "--verbose", is_flag=True)
+def main(filename, alpha, verbose, max_digits):
+    """Analyze a set of numbers using Benford's Law."""
+
+    with open(filename, "r") as f:
+        numbers = f.readlines()
+
+    N = len(numbers)
+
+    np.seterr(divide="ignore")
+    for k in range(max_digits):
+        digits = np.array([num.strip()[k:k+1] for num in numbers], int)
+
+        obs = np.bincount(digits)
+        # list all possbile digits, with a column for each digit in the kth position
+        # discard numbers that don't have k digits
+        slc = 10 ** (k-1) if k > 0 else 0
+        possible = np.arange(10 ** (k+1)).reshape((10**k, -1))[slc:]
+        exp = N * np.log10(1 + 1 / possible).sum(axis=0)
+
+        if k == 0:
+            _, p = chisquare(obs[1:], exp[1:len(obs)])
+        else:
+            _, p = chisquare(obs, exp[:len(obs)])
+
+        ordinals = ["first", "second", "third", "fourth", "fifth", "sixth",
+                "seventh", "eighth", "ninth", "tenth"]
+
+        if p < alpha:
+            cl.secho(f"Discrepancy in {ordinals[k]} digit: p={p:.4f}", 
+                    err=True, fg="red")
+        if verbose:
+            if np.isinf(exp[0]): 
+                exp[0] = -1
+            cl.echo(f"{ordinals[k]} digit".upper())
+            cl.echo(f"Observed: {obs}")
+            cl.echo(f"Expected: {exp.astype(int)}")
+            cl.echo(f"p-value: {p:.4f}")
+            cl.echo()
+
+if __name__ == "__main__":
+    main()

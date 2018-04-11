@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-curl en.wikipedia.org/wiki/$1 -sLA Mozilla |\
-pup 'div#mw-content-text > p text{}' |\
-tr -d '\n' | sed -Ee "s/&#39;/'/g" |\
-sed -Ee 's/&#34;/"/g' | fold -sw 80 | less

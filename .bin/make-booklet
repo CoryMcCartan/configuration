@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for file in "$@"
+do
+    mv $file ~/.bin/.tmp/split_pdf.pdf
+    pushd ~/.bin/.tmp/
+    pdflatex booklet_template
+    popd
+    mv ~/.bin/.tmp/booklet_template.pdf booklet-$file
+done

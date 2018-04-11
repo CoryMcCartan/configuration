@@ -1,0 +1,40 @@
+#!/bin/bash
+printdir=~/Documents/Code/JS/corymccartan.github.io/printing
+
+if [ "$1" == "clear" ]; then
+    pushd $printdir > /dev/null
+    rm *.pdf
+elif [ "$1" == "list" ]; then
+    pushd $printdir > /dev/null
+    ls *.pdf
+else
+    dname=${PWD##*/}
+
+    if [ ! -f $1 ]; then
+        echo $1 not found.
+        exit 1
+    fi
+
+    if [ -f "$printdir/$dname $1" ]; then
+        while true; do
+            read -n 1 -p "File exists. Overwrite? (y/n)" yn
+            echo ""
+            case $yn in
+                [Yy]* ) cp $1 "$printdir/$dname $1"; break;;
+                [Nn]* ) cp $1 "$printdir/Copy of $dname $1"; break;;
+                * ) echo "Please answer yes or no.";;
+            esac
+        done
+    else 
+        cp $1 "$printdir/$dname $1"
+    fi
+
+    pushd $printdir > /dev/null
+    git add .
+    git commit -m 'new print file [ci skip]'
+    git fetch
+    git merge --commit -m 'merge [ci skip]'
+    git push
+fi
+
+popd > /dev/null

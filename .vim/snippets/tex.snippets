@@ -3,7 +3,7 @@ snippet article
 
 	\title{${1}}
 	\date{${2}}
-	\author{${3}}
+	\author{${3:Cory McCartan}}
 
 	\begin{document}
 		\maketitle
@@ -11,49 +11,55 @@ snippet article
 		${0}
 	\end{document}
 snippet begin
-	\begin{${1:env}}
-		${0}
+	\begin{${1:env}}${0}
 	\end{$1}
 snippet align
 	\begin{align}
 		${0}
 	\end{align}
 snippet fr
-	\frac{${1}}{${2}} ${0}
+	\frac{${1}}{${2}}${0}
 snippet vc
 	\vec{${1}} ${0}
 snippet dots
-	${1:c}_1, $1_2, \dots, $1_${2:n}
+	${1:c}_1,$1_2,\dots,$1_${2:n}
 snippet sec
-	\section{${1}}
+	\section*{${1}}
 	${0}
 snippet sub
-	\subsection{${1}}
+	\subsection*{${1}}
 	${0}
 snippet subs
-	\subsubsection{${1}}
+	\subsubsection*{${1}}
 	${0}
+snippet sup
+	\textsuperscript*{${1}}${0}
 snippet para
-	\paragraph{${1}}
+	\paragraph*{${1}}
 	${0}
 snippet it
-	\textit{${1}} ${0}
+	\textit{${1}}${0}
 snippet bf
-	\textbf{${1}} ${0}
+	\textbf{${1}}${0}
 snippet use
 	\usepackage{${1}}${0}
-snippet mathpkg
-	\usepackage{amsthm}
-	\usepackage{amsfonts}
-	\usepackage{amsmath}
-	\usepackage{mathtools}
-	\usepackage[parfill]{parskip}
-	\usepackage{tikz}
+snippet comm
+	\newcommand{${1}}[${2:1}]{${0}}
 snippet enum
-	\begin{enumerate}
+	\begin{enumerate}[${1:a.}]
 		\item ${0}
 	\end{enumerate}
 snippet item
 	\begin{itemize}
 		\item ${0}
 	\end{itemize}
+snippet induction
+	Show that that $${1:}$ for all $n\in\N$.
+	\begin{proof}
+		We proceed by induction.
+		\begin{itemize}
+			\item \textit{Base case.} ${0}
+			\item \textit{Inductive step.}
+		\end{itemize}
+		By induction, we conclude that $$1$ for all $n\in\N$.
+	\end{proof}

@@ -20,8 +20,8 @@ set colorcolumn=81
 " commenting
 autocmd FileType c,cpp,java,scala,javascript let b:comment_leader = '// '
 autocmd FileType c,cpp,java,scala,javascript let b:comment_ender = ''
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType sh,ruby,python   let b:comment_ender = ''
+autocmd FileType sh,ruby,python,R,md,rmd   let b:comment_leader = '# '
+autocmd FileType sh,ruby,python,R,md,rmd   let b:comment_ender = ''
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType tex              let b:comment_ender = ''
 autocmd FileType mail             let b:comment_leader = '> '
@@ -34,8 +34,14 @@ autocmd FileType css let b:comment_ender = ' */'
 " word wrap
 autocmd FileType tex setlocal tw=80 	
 " filetype indenting
-autocmd FileType html,python set foldmethod=indent
+autocmd FileType html,python,sass set foldmethod=indent
+autocmd FileType python,r,rmd set nosmartindent 
 autocmd FileType sass setlocal sw=4 sts=4
+" syntax highlighting
+autocmd BufNewFile,BufRead *.tikz   set syntax=tex
+autocmd FileType tex set regexpengine=1
+" crontab editing
+au FileType crontab setlocal bkc=yes
 "}}}
 " Syntax {{{
 " filetype based plugins etc
@@ -50,6 +56,8 @@ nnoremap gr gdva{:s/<C-R>///g<left><left>
 nnoremap gR gD:%s/<C-R>///g<left><left>"}]
 " syntax highighting
 syntax on
+" don't jump to matching tags/brackets
+set matchtime=0
 " LaTeX
 let g:tex_flavor = "latex"
 "}}}
@@ -69,20 +77,22 @@ vmap <C-x> g<C-x>
 " timeout length for shortcuts
 set timeoutlen=600
 " moving lines
-nnoremap <C-j> :m+<CR>==
-nnoremap <C-k> :m-2<CR>==
-vnoremap <C-j> :m'>+<CR>gv=gv
-vnoremap <C-k> :m-2<CR>gv=gv
+nnoremap <C-S-j> :m+<CR>==
+nnoremap <C-S-k> :m-2<CR>==
+vnoremap <C-S-j> :m'>+<CR>gv=gv
+vnoremap <C-S-k> :m-2<CR>gv=gv
 " exit insert mode
-inoremap jk <Esc>l
+" inoremap jk <Esc>l
 inoremap <C-c> <Esc>l
 " Insert newline
 " nnoremap <S-enter> o<Esc>k
 " comment and uncomment
 let b:comment_leader = ''
 let b:comment_ender = ''
-noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:s/$/<C-R>=escape(b:comment_ender,'\/*')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:s/<C-R>=escape(b:comment_ender,'\/*')<CR>$<CR>:nohlsearch<CR>
+noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:s/$/<C-R>=escape(b:comment_ender,'\/*')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:s/<C-R>=escape(b:comment_ender,'\/*')<CR>$<CR>:nohlsearch<CR>
+noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 "}}}
 " Motion {{{
 " move to next editor line
@@ -92,8 +102,6 @@ nnoremap k gk
 set nostartofline
 set mouse=a
 set backspace=indent,eol,start
-" word wrap
-set whichwrap+=<,>,h,l,[,]
 " select what was just pasted
 nnoremap gp `[v`]
 " use f2 to toggle between pase and nopaste
@@ -185,10 +193,10 @@ set ttyfast
 " auto pairs
 let g:AutoPairsFlyMode = 1
 " fix meta-keys
-set <M-e>=e
-imap e <M-e>
-set <M-b>=b
-imap b <M-b>
+" set <M-e>=e
+" imap e <M-e>
+" set <M-b>=b
+" imap b <M-b>
 " only do syntax highlighting for first 100 columns
 set synmaxcol=120
 " for this file's folds

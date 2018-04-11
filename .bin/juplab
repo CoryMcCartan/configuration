@@ -1,0 +1,5 @@
+#!/usr/local/bin/bash
+
+cd ${1:~/Documents/Code}
+(sleep 1.5; '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --new-window "http://localhost:8888") &
+/usr/local/bin/jupyter lab --no-browser

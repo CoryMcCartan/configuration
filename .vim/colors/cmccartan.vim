@@ -119,6 +119,4 @@ hi texMathZoneX guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg
 hi texMathZoneE guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
 hi texMathMatcher guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
 hi texOnlyMath guifg=#b7bec7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
-hi texItalStyle guifg=#f0f0f0 guibg=#141414 guisp=#141414 gui=NONE ctermfg=254 ctermbg=233 cterm=NONE
-
-
+hi texItalStyle guifg=#f0f0f0 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE

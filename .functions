@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# neovim
+alias vi=nvim
+alias vim=nvim
+
+# python 3
+alias python=python3
+#alias pip=pip3
+alias pydoc=pydoc3
+
+alias R='R --no-save'
+# sc
+alias sc=scim
+
+
 # cool ls 
 alias ls='ls -pFhG'
 export LSCOLORS="hxfxcxdxBxegedabagachx"
@@ -29,6 +43,21 @@ alias mathlan='ssh mccartan@ssh.cs.grinnell.edu'
 # tts
 alias say='say -v Daniel'
 
+# chrome
+chrome() {
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" $@
+}
+
+# download youtube
+ytdl() {
+    youtube-dl -x -o '%(title)s.%(ext)s' --audio-format $1 --audio-quality 0 $2
+}
+
+# html serve
+serve() {
+    python3 -m http.server
+}
+
 # js minify
 minify() {
     uglifyjs $1.js -o $1.min.js -c -m --screw-ie8
@@ -38,6 +67,11 @@ minify() {
 md() {
 	mkdir $1
 	cd $1
+}
+
+# cd & ls
+cdl() {
+    cd $1 && ls
 }
 
 # editing
@@ -52,19 +86,19 @@ rr() {
 extract() {
   if [ -f "$1" ]; then
     case "$1" in
-      *.tar.bz2)  tar -jxvf "$1"                        ;;
-      *.tar.gz)   tar -zxvf "$1"                        ;;
-      *.bz2)      bunzip2 "$1"                          ;;
-      *.dmg)      hdiutil mount "$1"                    ;;
-      *.gz)       gunzip "$1"                           ;;
-      *.tar)      tar -xvf "$1"                         ;;
-      *.tbz2)     tar -jxvf "$1"                        ;;
-      *.tgz)      tar -zxvf "$1"                        ;;
-      *.zip)      unzip "$1"                            ;;
-      *.ZIP)      unzip "$1"                            ;;
-      *.pax)      cat "$1" | pax -r                     ;;
-      *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
-      *.Z)        uncompress "$1"                       ;;
+      *.tar.bz2)  tar -jxvf $@                        ;;
+      *.tar.gz)   tar -zxvf $@                        ;;
+      *.bz2)      bunzip2 $@                          ;;
+      *.dmg)      hdiutil mount $@                    ;;
+      *.gz)       gunzip $@                           ;;
+      *.tar)      tar -xvf $@                         ;;
+      *.tbz2)     tar -jxvf $@                        ;;
+      *.tgz)      tar -zxvf $@                        ;;
+      *.zip)      unzip $@                            ;;
+      *.ZIP)      unzip $@                            ;;
+      *.pax)      cat $@ | pax -r                     ;;
+      *.pax.Z)    uncompress $@ --stdout | pax -r     ;;
+      *.Z)        uncompress $@                       ;;
       *) echo "'$1' cannot be extracted/mounted via extract()" ;;
     esac
   else
@@ -76,3 +110,7 @@ checkbrewupdates() {
 	brew update
 	brew outdated
 }
+
+export -f extract
+export -f chrome
+export -f minify
